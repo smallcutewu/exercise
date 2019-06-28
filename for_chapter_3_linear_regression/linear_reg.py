@@ -24,23 +24,23 @@ def evaluate(ys, ys_pred):
 
 def main(x_train, y_train):
     """训练模型，并返回从x到y的映射。"""
-
+    
     # 使用线性回归训练模型，根据训练集计算最优化参数
     ## 请补全此处代码，替换以下示例
-    # phi0 = np.expand_dims(np.ones_like(x_train), axis=1)
-    # phi1 = np.expand_dims(x_train, axis=1)
-    # phi = np.concatenate([phi0, phi1], axis=1)
-    # w = np.dot(np.linalg.pinv(phi), y_train)
+    phi0 = np.expand_dims(np.ones_like(x_train), axis=1)
+    phi1 = np.expand_dims(x_train, axis=1)
+    phi = np.concatenate([phi0, phi1], axis=1)
+    w = np.dot(np.linalg.pinv(phi), y_train)
 
     # 返回从x到y的映射函数y=f(x)
     # 注意：函数f(x)的变量只有x，参数w应作为内部变量
     def f(x):
         ## 请补全此处代码，替换以下示例
-        # phi0 = np.expand_dims(np.ones_like(x), axis=1)
-        # phi1 = np.expand_dims(x, axis=1)
-        # phi = np.concatenate([phi0, phi1], axis=1)
-        # y = np.dot(phi, w)
-        # return y
+        phi0 = np.expand_dims(np.ones_like(x), axis=1)
+        phi1 = np.expand_dims(x, axis=1)
+        phi = np.concatenate([phi0, phi1], axis=1)
+        y = np.dot(phi, w)
+        return y
         pass
 
     return f
@@ -68,11 +68,11 @@ if __name__ == '__main__':
     print('预测值与真实值的标准差：{:.1f}'.format(std))
 
     # 显示结果
-    # plt.plot(x_train, y_train, 'ro', markersize=3)
-    # plt.plot(x_test, y_test, 'k')
-    # plt.plot(x_test, y_test_pred)
-    # plt.xlabel('x')
-    # plt.ylabel('y')
-    # plt.title('Linear Regression')
-    # plt.legend(['train', 'test', 'pred'])
-    # plt.show()
+    plt.plot(x_train, y_train, 'ro', markersize=3)
+    plt.plot(x_test, y_test, 'k')
+    plt.plot(x_test, y_test_pred)
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.title('Linear Regression')
+    plt.legend(['train', 'test', 'pred'])
+    plt.show()
